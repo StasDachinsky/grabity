@@ -5,6 +5,7 @@
 
 let jsdom = require("jsdom");
 const {JSDOM} = jsdom;
+
 const virtualConsole = new jsdom.VirtualConsole();
 
 const OG_PROP = "property";
@@ -27,7 +28,7 @@ exports.grabInfo = async (url) => {
   let defaults = {};
 
   try{
-    let dom = await JSDOM.fromURL(url, {virtualConsole});
+    let dom = await JSDOM.fromURL(url, {virtualConsole,  userAgent: "googlebot"});
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
@@ -68,7 +69,7 @@ exports.grabAll = async (url) => {
   let res = {};
 
   try {
-    let dom = await JSDOM.fromURL(url, {virtualConsole});
+    let dom = await JSDOM.fromURL(url, {virtualConsole,   userAgent: "googlebot" });
     let doc = dom.window.document;
     let metaEls = doc.getElementsByTagName("meta");
     let linkEls = doc.getElementsByTagName("link");
@@ -87,7 +88,7 @@ exports.grabAll = async (url) => {
       filterAll(meta, "og:", res);
       filterAll(meta, "twitter:", res);
     }
-    
+
     res.favicon = findFavicon(linkEls);
 
     return res;

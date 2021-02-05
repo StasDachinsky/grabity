@@ -36,4 +36,12 @@ describe("grabity", () => {
       expect(it.favicon).to.equal("https://assets-cdn.github.com/favicon.ico");
     });
   });
+
+  describe("#grab with twitter links", () => {
+    it("should not crash by twitter links", async () => {
+      let it = await grabity.grab("https://twitter.com/i/web/status/1085665371095363584");
+      console.log('IT', it)
+      expect(it['og:title']).to.equal('robert fair on Twitter')
+    });
+  });
 });
