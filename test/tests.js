@@ -44,4 +44,12 @@ describe("grabity", () => {
       expect(it['og:title']).to.equal('robert fair on Twitter')
     });
   });
+
+  describe("#grab with ig short links", () => {
+    it("should not crash by ig links", async () => {
+      let it = await grabity.grab("https://t.co/mICgYBlGqh");
+      console.log('IT', it)
+      // expect(it['og:title']).to.equal('robert fair on Twitter')
+    });
+  });
 });
