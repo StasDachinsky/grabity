@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/e-oj/grabity"
+    "url": "https://github.com/StasDachinsky/grabity"
   },
   "keywords": [
     "open graph",
@@ -22,12 +22,12 @@
   "author": "Emmanuel Olaojo",
   "license": "MIT",
   "dependencies": {
-    "jsdom": "11.3.0"
+    "jsdom": "StasDachinsky/jsdom#master"
   },
   "devDependencies": {
     "chai": "4.1.2",
     "express": "4.16.2",
-    "mocha": "4.0.1",
-    "morgan": "1.9.0"
+    "mocha": "^9.0.3",
+    "morgan": "^1.10.0"
   }
 }
